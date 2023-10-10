@@ -1,0 +1,17 @@
+{
+  "name": "apianime",
+  "version": "1.0.0",
+  "description": "Api com descrição de alguns anime",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.1.0",
+    "mongoose": "^7.6.0",
+    "nodemon": "^3.0.1"
+  }
+}
