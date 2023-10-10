@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 const AnimesSchema = new mongoose.Schema({
     title: {
@@ -33,4 +33,4 @@ const AnimesSchema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('Anime', AnimesSchema)
+export default  mongoose.model('Anime', AnimesSchema)

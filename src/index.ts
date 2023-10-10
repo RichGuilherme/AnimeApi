@@ -1,7 +1,7 @@
-const express = require('express')
+import express from 'express'
 const app = express()
-const animes = require("./router.js")
-const connectDb = require('./dataBase/db.js')
+import animes from "./router.js"
+import connectDb from './dataBase/db.js'
 
 const port = 3000
 connectDb()

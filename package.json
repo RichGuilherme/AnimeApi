@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Api com descrição de alguns anime",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon src/index.js"
   },
@@ -12,6 +13,11 @@
     "express": "^4.18.2",
     "mongodb": "^6.1.0",
     "mongoose": "^7.6.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "tsup": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.18",
+    "typescript": "^5.2.2"
   }
 }
