@@ -1,10 +1,11 @@
-import mongoose from 'mongoose'
+import mongoose, { ConnectOptions } from 'mongoose'
+import "dotenv/config"
 
 const connectDb = () => {
-    mongoose.connect("mongodb+srv://RichardGui:ygZIuS7qnkrgMvkC@richard.hpe2yfv.mongodb.net/?retryWrites=true&w=majority", {
-        // useNewUrlParser: true,
-        // useUnifiedTopology: true
-    }).
+    mongoose.connect(process.env.MONGODB_URI || "", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    } as ConnectOptions).
         then(() => console.log("banco de dados conectado")).
         catch((erro) => console.error("erro"))
 }

@@ -1,14 +1,42 @@
-import mongoose from'mongoose'
+import { Request, Response } from 'express'
+import Anime from '../model/animesScrema'
 
-import Anime from '../model/animesScrema.js'
+class ApiControllers {
+    async create(request: Request, response: Response) {
+        try {
+            const { title, descrition, image_url, gender, numberEps, author, note } = request.body
 
-export default {
-    async add(req : any, res : any) {
-        const { title, descrition, image_url, gender, numberEps, author, note} = req.body
+            const anime = await Anime.create({
+                title,
+                descrition,
+                image_url,
+                gender,
+                numberEps,
+                author,
+                note
+            })
 
-        const anime = new Anime({ title, descrition, image_url, gender, numberEps, author, note })
-        await anime.save()
-
-        res.send(anime)
+            await anime.save()
+            response.json(anime)
+        } catch {
+            response.status(500).json({
+                error: "creation failed",
+                message: Error
+            })
+        }
     }
-} 
+
+    async show(request: Request, response: Response) {
+        try {
+           const anime = await Anime.find()
+           response.json(anime)
+           
+        } catch {
+            response.status(500).json({
+                error: "erro"
+            })
+        }
+    }
+}
+
+export default new ApiControllers
