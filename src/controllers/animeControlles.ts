@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import Anime from '../model/animesScrema'
 
 class ApiControllers {
-    async create(request: Request, response: Response) {
+    create = async (request: Request, response: Response) => {
         try {
             const { title, descrition, image_url, gender, numberEps, author, note } = request.body
 
@@ -26,7 +26,7 @@ class ApiControllers {
         }
     }
 
-    async show(request: Request, response: Response) {
+    all = async (request: Request, response: Response) => {
         try {
            const anime = await Anime.find()
            response.json(anime)
@@ -37,6 +37,43 @@ class ApiControllers {
             })
         }
     }
+
+    show = async (request: Request, response: Response) => {
+        try {
+           const anime = await Anime.findById(request.params.id)
+           response.json(anime)
+           
+        } catch {
+            response.status(500).json({
+                error: "erro"
+            })
+        }
+    }
+    
+
+    updated = async (request: Request, response: Response) => {
+        try {
+           const anime = await Anime.findById(request.params.id)
+           
+           
+        } catch {
+            response.status(500).json({
+                error: "erro"
+            })
+        }
+    }
+    
+    delete = async (request: Request, response: Response) => {
+        try {
+           const anime = await Anime.findByIdAndDelete(request.params.id)
+           response.json(anime)
+        } catch {
+            response.status(500).json({
+                error: "erro"
+            })
+        }
+    }
+
 }
 
 export default new ApiControllers
