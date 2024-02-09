@@ -2,10 +2,11 @@
   "name": "apianime",
   "version": "1.0.0",
   "description": "Api com descrição de alguns anime",
-  "main": "index.js",
+  "main": "./dist/index.js",
 
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc -p ."
   },
   "author": "",
   "license": "ISC",
