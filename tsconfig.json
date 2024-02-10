@@ -7,11 +7,7 @@
     "esModuleInterop": true,                            
     "forceConsistentCasingInFileNames": true,     
     "moduleResolution": "node",
-    "rootDir": "src",
-    "typeRoots": [
-      "./src/@types",
-      "./node_modules/@types"
-    ],       
+    "rootDir": "src",      
     "outDir": "./dist",
     "removeComments": true,
     "strict": true,                                      
